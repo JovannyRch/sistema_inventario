@@ -1,0 +1,123 @@
+                <aside class="sidebar">
+                    <div class="sidebar-container">
+                        <div class="sidebar-header">
+                            <div class="brand">
+                                
+                                <div class="logo-nuevo">
+                        {% load static %} 
+                                </div> COMPUTRONS </div>
+                        </div>
+
+                        <nav class="menu">
+                            <ul class="sidebar-menu metismenu" id="sidebar-menu">
+                                <li>
+                                    <a href="/inventario/panel">
+                                        <i class="fa fa-home"></i> INICIO </a>
+                                </li>
+                                 <!-- Sub-menu de Inventario -->
+                                 <li>
+                                    <a href="">
+                                        <i class="fa fa-shopping-bag"></i></i> INVENTARIO
+                                        <i class="fa arrow"></i>
+                                    </a>
+                                    <ul class="sidebar-nav">
+                                        <li><a href="/inventario/stock"><i class="fa fa-ellipsis-h"></i>Stock</a></li>
+                                        <li><a href="/inventario/agregarProductoStock"><i class="fa fa-plus"></i>Agregar productos a Stock</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Sub-menu de producto -->
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-shopping-basket"></i> PRODUCTOS
+                                        <i class="fa arrow"></i>
+                                    </a>
+                                    <ul class="sidebar-nav">
+                                        <li><a href="/inventario/listarProductos"><i class="fa fa-ellipsis-h"></i>Listar Productos</a></li>
+                                        <li><a href="/inventario/agregarProducto"><i class="fa fa-plus"></i>Agregar Productos</a></li>
+                                    </ul>
+                                </li>
+                                <!--Fin de sub-menu de producto -->
+
+
+
+                                <!-- Sub-menu de proveedor -->    
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-book"></i>PROVEEDOR
+                                        <i class="fa arrow"></i>
+                                    </a>
+                                    <ul class="sidebar-nav">
+           <li><a href="/inventario/listarProveedores"><i class="fa fa-ellipsis-h"></i>Listar proveedores</a></li>                            
+            <li><a href="/inventario/agregarProveedor"><i class="fa fa-plus"></i>Agregar proveedor</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Fin de sub-menu de proveedor -->
+                                                                
+
+
+                                <!-- Sub-menu de pedido -->
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-gift"></i>PEDIDOS
+                                        <i class="fa arrow"></i>
+                                    </a>
+                                    <ul class="sidebar-nav">
+<li><a href="/inventario/listarPedidos"><i class="fa fa-ellipsis-h"></i>Listar pedidos</a></li>
+<li><a href="/inventario/agregarPedido"><i class="fa fa-plus"></i>Añadir pedido</a></li>
+
+                                    </ul>
+                                    </li>
+                                <!-- Fin de sub-menu de pedido -->
+
+
+                                <!-- Sub-menu de clientes-->
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-handshake-o"></i>CLIENTES
+                                    </a>
+                                    <ul class="sidebar-nav">
+
+           <li><a href="/inventario/listarClientes"><i class="fa fa-ellipsis-h"></i>Listar clientes</a></li>                            
+            <li><a href="/inventario/agregarCliente"><i class="fa fa-plus"></i>Agregar cliente</a></li>
+ 
+                                    </ul>
+                                </li>
+                                <!-- Fin de sub-menu de clientes -->
+
+                                <!-- Sub-menu de factura-->
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-ticket"></i>FACTURA
+                                        <i class="fa arrow"></i>
+                                    </a>
+                                    <ul class="sidebar-nav">
+            <li><a href="/inventario/listarFacturas"><i class="fa fa-ellipsis-h"></i>Listar facturas</a></li>
+            <li><a href="/inventario/emitirFactura"><i class="fa fa-money"></i>Emitir factura</a></li>
+
+                                    </ul>
+                                </li>
+                                <!-- Fin de sub-menu de factura -->
+                                
+                                
+                                <!-- Sub-menu de usuarios -->
+                               
+
+                                {% if nivel == 1 %}
+                                   
+                                    <li>
+                                        <a href="">
+                                            <i class="fa fa-users"></i> AGREGAR USUARIOS  
+                                            <i class="fa arrow"></i>
+                                        </a>
+                                        <ul class="sidebar-nav">
+                                            <li><a href="/inventario/crearUsuario"><i class="fa fa-circle-o"></i>Crear usuario</a></li>
+                                            <li><a href="/inventario/listarUsuarios"><i class="fa fa-circle-o"></i>Listar usuarios</a></li>                                 </ul>
+                                        </ul>
+                                    </li>
+                                    
+                                {% endif %}
+                                <!--Fin de sub-menu de usuarios -->
+                            
+                        </nav>
+                    </div>
+                </aside>
