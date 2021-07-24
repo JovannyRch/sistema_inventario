@@ -1318,10 +1318,7 @@ class VerPedido(LoginRequiredMixin, View):
         pedido = Pedido.objects.get(id=p)
         detalles = DetallePedido.objects.filter(id_pedido_id=p)
         recibido = Pedido.recibido(p)
-        pedido.subtotal =  str(round(pedido.monto_general*Decimal(0.88), 2))
         
-        for producto in detalles: 
-            producto.subtotal = str(round(producto.sub_total*Decimal(0.88), 2))
 
         contexto = {'pedido':pedido, 'detalles':detalles,'recibido': recibido}
         

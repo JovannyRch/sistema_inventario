@@ -42,7 +42,7 @@
                                                             <th>Item</th>
                                                             <th>Nombre</th>
                                                             <th>Precio</th>
-                                                            <th>Disponible</th>
+                                                            <th>Stock</th>
                                                             <th>Categoria</th>
                                                             <th>IVA</th>
                                                             <th>Opciones</th>
@@ -56,11 +56,7 @@
                                                             <td>{{ fila.precio }}</td>
                                                             <td>
                                                             
-                                                                {% if fila.disponible == 1 %}
-                                                                Si
-                                                                {% else %}
-                                                                No
-                                                                {%endif%}
+                                                               {{fila.disponible}}
                                                             </td>
                                                             <td>
                                                     {% if fila.categoria == '1' %}

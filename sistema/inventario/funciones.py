@@ -17,8 +17,7 @@ def productoTieneIva(idProducto):
     return resultado
 
 def sacarIva(elemento):
-    iva = 12
-    ivaSacado =  iva.valor_iva/100
+    ivaSacado =  12/100
     resultado = elemento + (elemento * Decimal(ivaSacado))  
     return resultado    
 
