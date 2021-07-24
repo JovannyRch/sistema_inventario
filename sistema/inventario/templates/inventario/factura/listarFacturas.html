@@ -14,8 +14,8 @@
          <div class="card card-primary">
             <div class="card-header"> 
                 <div class="header-block">
-                    <em class="fa fa-check"></em>
-                        <p class="title">{{ message }}</p>
+                    <em class="fa fa-check text-white"></em>
+                        <p class="title text-white">{{ message }}</p>
                     </div>
                 </div>
          </div>
@@ -46,7 +46,7 @@
                                                         <tr>
                                                             <td>{{ fila.id}}</td>
                                                             <td>{{ fila.cliente.cedula }}</td>
-                                                            <td>{{ fila.nombre }} {{ fila.apellido }}</td>
+                                                            <td>{{ fila.cliente.nombre }} {{ fila.cliente.apellido }}</td>
                                                             <td>{{ fila.fecha }}</td>
                                                             <td>{{ fila.sub_monto }}</td>
                                                             <td>{{ fila.monto_general }}</td>

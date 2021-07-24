@@ -48,17 +48,18 @@
             tr:nth-child(even){background-color: #f2f2f2}
 
             th,tfoot {
-                background-color: #4CAF50;
+                background-color: #0865a7;
                 color: white;
                 }
 
             #factura_mensaje
             {
                 text-align: center;
-                background-color: #b8afaf;
+                background-color: #0865a7;
                 font-size: 18px;
                 padding: auto;
                 padding-top: 8px;
+                color: white;
             }
 
             #negocio_nombre
@@ -66,7 +67,7 @@
                 font-size: 22px;
                 font-weight: 100;
                 text-align: center;
-                background-color: #4CAF50;
+                background-color: #0865a7;
                 color: #ffffff;
                 padding-top: 8px;
                 height: 12px;
@@ -76,6 +77,8 @@
     </head>
     <body>
         <div class='wrapper'>
+            <div id="negocio_nombre">
+                COMPUTRONS
             </div>
 
             <div class='header'>
@@ -96,10 +99,43 @@
             {% endif %}
             Total general: {{ monto_general }}  <br/>
             Fecha: {{ fecha }} <br/>
+            IVA utilizado: {{ iva }}% <br/>
             <hr class='hrItem' />
         </div>
     </div>
 
     <div>
+
+<table>
+  <tr>
+    <th>Producto</th>
+    <th>Cantidad</th>
+    <th>Sub-total</th>
+    <th>Total</th>
+  </tr>
+  {% for producto in detalles %}
+  <tr>
+    <td>{{ producto.id_producto.descripcion }}</td>
+    <td>{{ producto.cantidad }}</td>
+    <td>{{ producto.sub_total }}</td>
+    <td>{{ producto.total }}</td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <td>-----</td>
+    <td>-----</td>
+    <td>-----</td>
+    <td>
+      Total general : {{ monto_general }}
+    </td>
+  </tr>
+</table>
+
+    </div>
+
+    <div id="factura_mensaje">
+        {{ general.mensaje_factura }}
+    </div>
+
     </body>
 </html>

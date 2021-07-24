@@ -39,7 +39,23 @@ class Opciones(models.Model):
 #-------------------------------PRODUCTO------------------------------------------------
 class Producto(models.Model):
     #id
-    decisiones =  [('1','Computador de escritorio'),('2','laptops'),('3','netbooks'),('4','Apple'),('5','Otros')]
+    decisiones =  [
+        ('1','Computador de escritorio'),
+        ('2','Laptops'),
+        ('3','Netbooks'),
+        ('4','Apple'),
+        ('5','RAM'),
+        ('6','Parlantes'),
+        ('7','CPU'),
+        ('8','Monitor'),
+        ('9','Teclado'),
+        ('10','Mouse'),
+        ('11','Puerto HDMI'),
+        ('12','Cable Sata'),
+        ('13','Cable USB'),
+        ('14','USB'),
+        ('15','Otros')
+        ]
     descripcion = models.CharField(max_length=40)
     precio = models.DecimalField(max_digits=9,decimal_places=2)
     disponible = models.IntegerField(null=True)

@@ -23,8 +23,8 @@
          <div class="card card-primary">
             <div class="card-header"> 
                 <div class="header-block">
-                    <em class="fa fa-check"></em>
-                        <p class="title">{{ message }}</p>
+                    <em class="fa fa-check text-white"></em>
+                        <p class="title text-white">{{ message }}</p>
                     </div>
                 </div>
          </div>
@@ -57,15 +57,35 @@
                                                             <td>{{ fila.precio }}</td>
                                                             <td>{{ fila.disponible }}</td>
                                                             <td>
-                                                    {% if fila.categoria == '1' %}
+                                                     {% if fila.categoria == '1' %}
                                                             Computador de escritorio
                                                     {% elif fila.categoria == '2' %}
-                                                            laptops
+                                                            Laptops
                                                     {% elif fila.categoria == '3' %}
-                                                            netbooks
+                                                            Netbooks
                                                     {% elif fila.categoria == '4' %}
                                                             Apple
                                                     {% elif fila.categoria == '5' %}
+                                                            RAM
+                                                    {% elif fila.categoria == '6' %}
+                                                            Parlantes
+                                                    {% elif fila.categoria == '7' %}
+                                                            CPU
+                                                    {% elif fila.categoria == '8' %}
+                                                            Monitor
+                                                    {% elif fila.categoria == '9' %}
+                                                            Teclado
+                                                    {% elif fila.categoria == '10' %}
+                                                            Mouse
+                                                    {% elif fila.categoria == '11' %}
+                                                            Puerto HDMI
+                                                    {% elif fila.categoria == '12' %}
+                                                            Cable Sata
+                                                    {% elif fila.categoria == '13' %}
+                                                            Cable USB
+                                                    {% elif fila.categoria == '14' %}
+                                                            USB
+                                                    {% elif fila.categoria == '15' %}
                                                             Otros
                                                         {%endif%}
 
