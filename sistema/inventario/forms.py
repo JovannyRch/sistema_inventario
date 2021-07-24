@@ -33,16 +33,18 @@ class ProductoFormulario(forms.ModelForm):
         )
     class Meta:
         model = Producto
-        fields = ['descripcion','precio','categoria','tiene_iva']
+        fields = ['descripcion','precio','categoria','disponible','tiene_iva']
         labels = {
         'descripcion': 'Nombre',
-        'tiene_iva': 'Incluye IVA?'
+        'tiene_iva': 'Incluye IVA?',
+        'disponible': "Cantidad en Stock"
         }
         widgets = {
         'descripcion': forms.TextInput(attrs={'placeholder': 'Nombre del producto',
         'id':'descripcion','class':'form-control'} ),
+        'disponible': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Cantidad en stock','id':'disponible', 'type':'number'}),
         'categoria': forms.Select(attrs={'class':'form-control','id':'categoria'}),
-        'tiene_iva': forms.CheckboxInput(attrs={'class':'checkbox rounded','id':'tiene_iva'}) 
+        'tiene_iva': forms.CheckboxInput(attrs={'class':'checkbox rounded','id':'tiene_iva'}),
         }
 
 class ImportarProductosFormulario(forms.Form):
@@ -168,7 +170,7 @@ class DetallesFacturaFormulario(forms.Form):
 
     cantidad = forms.IntegerField(label="Cantidad a facturar",min_value=0,widget=forms.NumberInput(attrs={'placeholder': 'Introduzca la cantidad del producto','class':'form-control','value':'0','onchange':'calculoPrecio(this);calculoDisponible(this)', 'max':'100'}))
 
-    ##cantidad_disponibles = forms.IntegerField(required=False,label="Stock disponible",min_value=0,widget=forms.NumberInput(attrs={'placeholder': 'Introduzca la cantidad del producto','class':'form-control','value':'0', 'max':'0', 'disabled':'true'}))
+    cantidad_disponibles = forms.IntegerField(required=False,label="Stock disponible",min_value=0,widget=forms.NumberInput(attrs={'placeholder': 'Introduzca la cantidad del producto','class':'form-control','value':'0', 'max':'0', 'disabled':'true'}))
 
     selec_disponibles = MisDisponibles(queryset=productos,required=False,widget=forms.Select(attrs={'placeholder': 'El producto a debitar','class':'form-control','disabled':'true','hidden':'true'}))
 

@@ -89,7 +89,8 @@
                                                             USB
                                                     {% elif fila.categoria == '15' %}
                                                             Otros
-        
+                                                    {% else %}
+                                                         No especificado
                                                     {%endif%}
 
                                                             </td>
@@ -104,15 +105,26 @@
                                                             </td>
                                                             <td>
 
-                                                <div class="btn-group">
-                                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></button>
-                                                <!-- <span class="sr-only">Abrir menu</span> -->
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="/inventario/editarProducto/{{ fila.id}}">Editar/Ver producto</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" onclick="eliminarEntrada( {{fila.id}},'producto' )">Eliminar producto</a>
-                                                    </div>
-                                                     </div>
+                                                                <div class="btn-group">
+                                                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></button>
+                                                                <!-- <span class="sr-only">Abrir menu</span> -->
+                                                                    <div class="dropdown-menu">
+                                                                        <a class="dropdown-item" href="/inventario/editarProducto/{{ fila.id}}">Editar/Ver producto</a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a class="dropdown-item" onclick="eliminarEntrada( {{fila.id}},'producto' )">Eliminar producto</a>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                {% if fila.disponible <= 0 %}
+                                                                    <div class="alert alert-danger" role="alert">
+                                                                        <strong>Stock Agotado</strong>
+                                                                    </div>
+                                                                {% elif fila.disponible < 5 %}
+                                                                    <div class="alert alert-warning" role="alert">
+                                                                        <strong>Stock por agotarse</strong>
+                                                                    </div>
+                                                                {% endif %}
+                                                                    
                                                             </td>
                                                         </tr>
                                                         {% endfor %}

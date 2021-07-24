@@ -1,14 +1,15 @@
 //se obtiene el numero de productos a facturar
 let productos = document.getElementById('id_form-TOTAL_FORMS').value 
+console.log("productos", productos);
 
 idCalculoDisponible = "";
 
 
 // se utiliza en calculoDisponible, pero se resetea en establecerDisponibles
-let ultimoValor = ultimoValor
+let ultimoValor = 0.0;
 
 //se utiliza en calculoDisponible
-let usado = ultimoValor
+let usado = 0.0;
 
 /*matriz que guarda que productos se han seleccionado en cada formulario. se inicia en 
 arreglosProductos
@@ -230,7 +231,8 @@ function calculoDisponible(elemento)
 function establecerDisponibles(elemento)
 {
 
-	inicializarCampos(0)
+	inicializarCampos(0);
+	console.log(elemento);
 
 	ultimoValor = 0
 
@@ -243,14 +245,12 @@ function establecerDisponibles(elemento)
 
 	cantidadFacturar.value = 0
 
-	let seguir = true
-
 	for(let i = 0; i < lista.children.length; i++)
 	{
-		if(idProducto == elementoAModificar[i].value && seguir)
+		if(idProducto == elementoAModificar[i].value)
 		{
 			elementoAModificar.selectedIndex = i
-			seguir = false
+			break;
 		}
 	}
 
@@ -259,9 +259,16 @@ function establecerDisponibles(elemento)
 
 
 	let stockDisponible = document.getElementById(idNuevo(nombre,'-',2,'cantidad_disponibles'))
-	stockDisponible.value = maximo
-	stockDisponible.max = maximo
-
+	stockDisponible.value = maximo;
+	stockDisponible.max = maximo;
+	console.log("maximo", maximo);
+	if(maximo == 0){
+		alert("La factura no se puede emitir, no hay stock suficiente");
+		document.querySelector("#id_form-0-cantidad").setAttribute("disabled", "true");
+	}
+	else{
+		document.querySelector("#id_form-0-cantidad").removeAttribute("disabled");
+	}
 
 }
 

@@ -12,8 +12,7 @@
 
                 <article class="content responsive-tables-page">
                     <div class="title-block">
-                        <h1 class="title"> Listar productos </h1>
-                        <p class="title-description"> Verifique los productos agregados </p>
+                        <h1 class="title"> Listar productos en Stock </h1>
                     </div>
                     <section class="section">
                         <div class="row">
@@ -43,7 +42,7 @@
                                                             <th>Item</th>
                                                             <th>Nombre</th>
                                                             <th>Precio</th>
-                                                            <th>Disponible</th>
+                                                            <th>Stock</th>
                                                             <th>Categoria</th>
                                                             <th>IVA</th>
                                                             <th>Opciones</th>
@@ -55,9 +54,12 @@
                                                             <td>{{ fila.id}}</td>
                                                             <td>{{ fila.descripcion }}</td>
                                                             <td>{{ fila.precio }}</td>
-                                                            <td>{{ fila.disponible }}</td>
                                                             <td>
-                                                     {% if fila.categoria == '1' %}
+                                                            
+                                                               {{fila.disponible}}
+                                                            </td>
+                                                            <td>
+                                                    {% if fila.categoria == '1' %}
                                                             Computador de escritorio
                                                     {% elif fila.categoria == '2' %}
                                                             Laptops
@@ -87,7 +89,9 @@
                                                             USB
                                                     {% elif fila.categoria == '15' %}
                                                             Otros
-                                                        {%endif%}
+                                                    {% else %}
+                                                         No especificado
+                                                    {%endif%}
 
                                                             </td>
                                                             <td>
@@ -101,15 +105,26 @@
                                                             </td>
                                                             <td>
 
-                                                <div class="btn-group">
-                                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></button>
-                                                <!-- <span class="sr-only">Abrir menu</span> -->
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="/inventario/editarProducto/{{ fila.id}}">Editar/Ver producto</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" onclick="eliminarEntrada( {{fila.id}},'producto' )">Eliminar producto</a>
-                                                    </div>
-                                                     </div>
+                                                                <div class="btn-group">
+                                                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></button>
+                                                                <!-- <span class="sr-only">Abrir menu</span> -->
+                                                                    <div class="dropdown-menu">
+                                                                        <a class="dropdown-item" href="/inventario/editarProducto/{{ fila.id}}">Editar/Ver producto</a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a class="dropdown-item" onclick="eliminarEntrada( {{fila.id}},'producto' )">Eliminar producto</a>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                {% if fila.disponible <= 0 %}
+                                                                    <div class="alert alert-danger" role="alert">
+                                                                        <strong>Stock Agotado</strong>
+                                                                    </div>
+                                                                {% elif fila.disponible < 5 %}
+                                                                    <div class="alert alert-warning" role="alert">
+                                                                        <strong>Stock por agotarse</strong>
+                                                                    </div>
+                                                                {% endif %}
+                                                                    
                                                             </td>
                                                         </tr>
                                                         {% endfor %}
