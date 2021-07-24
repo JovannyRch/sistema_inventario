@@ -305,8 +305,6 @@ class Eliminar(LoginRequiredMixin, View):
             cliente.delete()
             messages.success(request, 'Cliente de ID %s borrado exitosamente.' % p)
             return HttpResponseRedirect("/inventario/listarClientes")            
-
-
         elif modo == 'proveedor':
             proveedor = Proveedor.objects.get(id=p)
             proveedor.delete()
